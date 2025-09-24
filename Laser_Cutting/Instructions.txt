@@ -1,0 +1,12 @@
+Export design as SVG from your 2d software, if KiCAD then go to plot, invert colours and export as SVG.
+Open LaserWeb -> open SVG in there, generate desired GCODE from there, export.
+Open GCODE in LaserGRBL.
+
+Adjust laser in LaserGRBL by tracing a 5cm line on paper for x axis and one for y axis,
+then turn on laser, home it at the start of the line and run commands: G1 X50 F600 and then G1 Y50 F600
+Mark where laser stopped, measure actual travel length.
+then adjust setting $100 and $101 which are the steps/mm for X and Y respectively to the factor of the ratio calculated 50/measured*old_factor.
+Rerun to check.
+Done.
+My Value for Y -> $101=80
+X -> $100=80
